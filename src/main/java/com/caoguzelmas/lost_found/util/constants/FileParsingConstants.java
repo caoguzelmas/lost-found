@@ -1,4 +1,4 @@
-package com.caoguzelmas.lost_found.util;
+package com.caoguzelmas.lost_found.util.constants;
 
 public class FileParsingConstants {
 

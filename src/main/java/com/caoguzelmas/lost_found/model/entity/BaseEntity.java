@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-public class BaseEntity {
+public abstract class BaseEntity {
 
     @Column(name = "created_at")
     private Date createdAt;

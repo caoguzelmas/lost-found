@@ -12,7 +12,7 @@ import com.caoguzelmas.lost_found.model.entity.User;
 import com.caoguzelmas.lost_found.repository.ClaimRepository;
 import com.caoguzelmas.lost_found.repository.ItemLocationInventoryRepository;
 import com.caoguzelmas.lost_found.repository.UserRepository;
-import com.caoguzelmas.lost_found.util.ErrorMessageConstants;
+import com.caoguzelmas.lost_found.util.constants.ErrorMessageConstants;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.springframework.stereotype.Service;
@@ -26,16 +26,13 @@ public class ClaimService {
     private final ClaimRepository claimRepository;
     private final ItemLocationInventoryRepository itemLocationInventoryRepository;
     private final UserRepository userRepository;
-    private final MockUserService mockUserService;
 
     public ClaimService(ClaimRepository claimRepository,
                         ItemLocationInventoryRepository itemLocationInventoryRepository,
-                        UserRepository userRepository,
-                        MockUserService mockUserService) {
+                        UserRepository userRepository) {
         this.claimRepository = claimRepository;
         this.itemLocationInventoryRepository = itemLocationInventoryRepository;
         this.userRepository = userRepository;
-        this.mockUserService = mockUserService;
     }
 
     @Transactional
@@ -67,7 +64,7 @@ public class ClaimService {
 
         final User user = userRepository.findById(claimRequest.getUserId())
                 .orElseThrow(() -> {
-                    final String errorMessage = String.format(ErrorMessageConstants.ERROR_MESSAGE_USER_NOT_FOUND, claimRequest.getUserId());
+                    final String errorMessage = String.format(ErrorMessageConstants.ERROR_MESSAGE_CLAIMING_USER_NOT_FOUND, claimRequest.getUserId());
                     log.warn(errorMessage);
                     return new ClaimProcessingException(errorMessage);
                 });

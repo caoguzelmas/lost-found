@@ -1,4 +1,4 @@
-package com.caoguzelmas.lost_found.util;
+package com.caoguzelmas.lost_found.util.constants;
 
 public class ErrorMessageConstants {
 
@@ -20,8 +20,14 @@ public class ErrorMessageConstants {
     public static final String ERROR_MESSAGE_NO_ITEM_FOUND = "ItemLocationInventory with given ID: {} is not found";
     public static final String ERROR_MESSAGE_REQUESTED_NUMBER_OF_QUANTITY_CANNOT_BE_LESS_OR_EQUAL_ZERO = "Claimed quantity ({}) cannot be less than or equal to 0";
     public static final String ERROR_MESSAGE_INVALID_NUMBER_OF_QUANTITY = "Claimed quantity ({}) cannot be more than available quantity ({})";
-    public static final String ERROR_MESSAGE_USER_NOT_FOUND = "Claiming user with given ID: {} is not found";
+    public static final String ERROR_MESSAGE_CLAIMING_USER_NOT_FOUND = "Claiming user with given ID: {} is not found";
 
-
-
+    // Generic Authentication Error Messages
+    public static final String ERROR_MESSAGE_USER_NOT_FOUND = "User with the given username: {} is not found";
+    public static final String ERROR_MESSAGE_JWT_TOKEN_EXPIRED = "JWT token expired: {}";
+    public static final String ERROR_MESSAGE_JWT_UNEXPECTED_ERROR = "Unexpected error occurred while processing JWT: {}";
+    public static final String ERROR_MESSAGE_JWT_INVALID_TOKEN = "Invalid JWT token: {}";
+    public static final String ERROR_MESSAGE_JWT_TOKEN_VALIDATION_FAILED = "JWT token validation failed for user: {}";
+    public static final String ERROR_MESSAGE_JWT_INVALID_CREDENTIALS = "Authentication failed for user '{}': Invalid credentials.";
+    public static final String ERROR_MESSAGE_JWT_AUTHENTICATION_FAILED = "Authentication failed for user '{}': {}";
 }

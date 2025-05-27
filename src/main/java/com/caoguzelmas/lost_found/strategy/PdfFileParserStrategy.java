@@ -1,7 +1,7 @@
 package com.caoguzelmas.lost_found.strategy;
 
 import com.caoguzelmas.lost_found.model.dto.ParsedItemDataDTO;
-import com.caoguzelmas.lost_found.util.FileParsingConstants;
+import com.caoguzelmas.lost_found.util.constants.FileParsingConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
