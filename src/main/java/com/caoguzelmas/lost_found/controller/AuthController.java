@@ -38,22 +38,8 @@ public class AuthController {
     public ResponseEntity<?> createAuthenticationToken(@Valid @RequestBody LoginRequestDTO loginRequest) {
         log.info("Authentication attempt for user: {}", loginRequest.getUsername());
 
-        try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
-            log.info("Authentication successful for user: {}", loginRequest.getUsername());
-        } catch (BadCredentialsException e) {
-            final String errorMessage = String.format(ErrorMessageConstants.ERROR_MESSAGE_JWT_INVALID_CREDENTIALS, loginRequest.getUsername());
-            log.warn(errorMessage);
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorMessage);
-        } catch (AuthenticationException e) {
-            final String errorMessage = String.format(ErrorMessageConstants.ERROR_MESSAGE_JWT_AUTHENTICATION_FAILED, loginRequest.getUsername(), e.getMessage());
-            log.warn(errorMessage);
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorMessage);
-        } catch (Exception e) {
-            final String errorMessage = String.format(ErrorMessageConstants.ERROR_MESSAGE_JWT_UNEXPECTED_ERROR, e);
-            log.error(errorMessage);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorMessage);
-        }
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+        log.info("Authentication successful for user: {}", loginRequest.getUsername());
 
         final UserDetails userDetails = userDetailsService.loadUserByUsername(loginRequest.getUsername());
         log.info("UserDetails loaded for user '{}' after successful authentication.", userDetails.getUsername());

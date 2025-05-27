@@ -11,10 +11,6 @@ public class ErrorMessageConstants {
     public static final String ERROR_MESSAGE_UNSUPPORTED_FILE_TYPE = "Unsupported file type: {} for the file: {} ";
     public static final String ERROR_MESSAGE_PARSING_ERROR = "Failed to parse file: {}";
     public static final String ERROR_MESSAGE_NO_EXTENSION_FOUND = "No extension found for file: {}";
-    public static final String ERROR_MESSAGE_INVALID_QUANTITY_FORMAT = "Invalid quantity format in file :{}";
-    public static final String ERROR_MESSAGE_GENERAL_INTERNAL_ERROR = "An unexpected error occurred while parsing file: {}";
-    public static final String ERROR_MESSAGE_VALIDATION_ERROR = "Validation error occurred while parsing file: {}";
-    public static final String ERROR_MESSAGE_MAX_UPLOAD_SIZE_EXCEEDED = "Max upload size exceeded";
 
     // Generic Claim Request Error Messages
     public static final String ERROR_MESSAGE_NO_ITEM_FOUND = "ItemLocationInventory with given ID: {} is not found";
@@ -28,6 +24,6 @@ public class ErrorMessageConstants {
     public static final String ERROR_MESSAGE_JWT_UNEXPECTED_ERROR = "Unexpected error occurred while processing JWT: {}";
     public static final String ERROR_MESSAGE_JWT_INVALID_TOKEN = "Invalid JWT token: {}";
     public static final String ERROR_MESSAGE_JWT_TOKEN_VALIDATION_FAILED = "JWT token validation failed for user: {}";
-    public static final String ERROR_MESSAGE_JWT_INVALID_CREDENTIALS = "Authentication failed for user '{}': Invalid credentials.";
-    public static final String ERROR_MESSAGE_JWT_AUTHENTICATION_FAILED = "Authentication failed for user '{}': {}";
+    public static final String ERROR_MESSAGE_JWT_INVALID_CREDENTIALS = "Authentication failed: Invalid credentials.";
+    public static final String ERROR_MESSAGE_JWT_AUTHENTICATION_FAILED = "Authentication failed: {}";
 }
