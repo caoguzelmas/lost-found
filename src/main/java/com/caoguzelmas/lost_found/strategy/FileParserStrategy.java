@@ -9,5 +9,5 @@ public interface FileParserStrategy {
 
     List<ParsedItemDataDTO> parseFile(final MultipartFile file);
 
-    boolean supports(final String fileExtension);
+    boolean supports(final String fileContentType, final String fileName);
 }
