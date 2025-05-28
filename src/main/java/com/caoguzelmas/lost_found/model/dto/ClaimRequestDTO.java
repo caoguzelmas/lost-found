@@ -3,12 +3,14 @@ package com.caoguzelmas.lost_found.model.dto;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class ClaimRequestDTO {
 
     @NotNull(message = "User ID cannot be blank")

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -32,8 +31,7 @@ public class PdfFileParserStrategy implements FileParserStrategy {
         final List<ParsedItemDataDTO> parsedItems = new ArrayList<>();
         log.info("Attempting to parse PDF file: {}", file.getOriginalFilename());
 
-        try (InputStream inputStream = file.getInputStream();
-             PDDocument document = Loader.loadPDF(file.getBytes())) {
+        try (PDDocument document = Loader.loadPDF(file.getBytes())) {
 
             final PDFTextStripper pdfStripper = new PDFTextStripper();
             pdfStripper.setSortByPosition(true);
@@ -111,10 +109,8 @@ public class PdfFileParserStrategy implements FileParserStrategy {
             }
         } catch (IOException e) {
             log.error("IOException during PDF parsing for file: {}", file.getOriginalFilename(), e);
-            // TODO
         } catch (Exception e) {
             log.error("Unexpected error during PDF parsing for file: {}", file.getOriginalFilename(), e);
-            // TODO
         }
 
         log.info("Successfully parsed PDF file: {}", file.getOriginalFilename());

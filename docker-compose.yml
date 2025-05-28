@@ -11,8 +11,6 @@ services:
       POSTGRES_DB: lostfounddb
     ports:
       - "5433:5432"
-    volumes:
-      - pgdata:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U admin -d lostfounddb"]
       interval: 10s
