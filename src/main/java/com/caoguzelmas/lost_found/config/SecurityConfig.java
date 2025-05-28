@@ -46,11 +46,9 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers("/api/auth/**").permitAll()
-                        .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/items").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/items/upload").hasRole(Role.ADMIN.name())
                         .requestMatchers(HttpMethod.POST, "/api/claims").hasAnyRole(Role.USER.name(), Role.ADMIN.name())
-                        //.requestMatchers(HttpMethod.GET, "/api/claims").hasRole("ROLE_ADMIN")
                         .requestMatchers(HttpMethod.GET, "/api/claims").hasRole(Role.ADMIN.name())
                         .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
